@@ -10,6 +10,9 @@ option("lto", {showmenu = true, default = false, description = "Enable LTO"})
 add_rules("mode.debug", "mode.release", "mode.asan", "mode.tsan")
 
 -- Set third-party packages, we do not use ./third-party codes
+--
+-- Xmake will find packages that is already installed on the system.
+-- If they are not found, it will continue to download and install them.
 add_requires("tbb", "xxhash", "zlib")
 if not is_plat("macosx") then
     add_requires("openssl")
